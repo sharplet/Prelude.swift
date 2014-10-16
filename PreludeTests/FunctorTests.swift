@@ -5,8 +5,11 @@ class FunctorTests: XCTestCase {
 
   // Helpers
 
+  func identity<A>(a: A) -> A { return a }
+
   func double(x: Int) -> Int { return x * 2 }
   func triple(x: Int) -> Int { return x * 3 }
+  func square(x: Int) -> Int { return x * x }
 
   func show<T: Printable>(t: T) -> String { return t.description }
 
@@ -32,6 +35,20 @@ class FunctorTests: XCTestCase {
     XCTAssertEqual(60, result!)
   }
 
+  func test_optional_obeys_the_identity_functor_law() {
+    let value: Int? = 10
+    let result = identity <^> value
+    XCTAssertNotNil(result)
+    XCTAssertEqual(10, result!)
+  }
+
+  func test_optional_obeys_the_composition_functor_law() {
+    let value: Int? = 10
+    let result1 = (double • triple) <^> value
+    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(value)
+    XCTAssertEqual(result1!, result2!)
+  }
+
 
   // Array
 
@@ -55,22 +72,29 @@ class FunctorTests: XCTestCase {
     XCTAssertEqual(expected, multipliedBySix)
   }
 
+  func test_array_obeys_the_identity_functor_law() {
+    let ints = Array(1...10)
+    let result = identity <^> ints
+    let expected = Array(1...10)
+    XCTAssertEqual(expected, result)
+  }
+
+  func test_array_obeys_the_composition_functor_law() {
+    let ints = Array(1...10)
+    let result1 = (double • triple) <^> ints
+    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(ints)
+    XCTAssertEqual(result1, result2)
+  }
+
 
   // Dictionary
 
+  let singles = [ "one": 1, "two": 2, "three": 3 ]
+  let doubles = [ "one": 2, "two": 4, "three": 6 ]
+
   func test_it_maps_a_dictionary_of_ints() {
-    let singles = [
-      "one": 1,
-      "two": 2,
-      "three": 3,
-    ]
     let result = double <^> singles
-    let expected = [
-      "one": 2,
-      "two": 4,
-      "three": 6,
-    ]
-    XCTAssertEqual(expected, result)
+    XCTAssertEqual(doubles, result)
   }
 
   func test_it_maps_an_empty_dictionary() {
@@ -78,6 +102,17 @@ class FunctorTests: XCTestCase {
     let result = show <^> empty
     let expected = [String: String]()
     XCTAssertEqual(expected, result)
+  }
+
+  func test_dictionary_obeys_the_identity_functor_law() {
+    let result = identity <^> singles
+    XCTAssertEqual(singles, result)
+  }
+
+  func test_dictionary_obeys_the_composition_functor_law() {
+    let result1 = (double • triple) <^> singles
+    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(singles)
+    XCTAssertEqual(result1, result2)
   }
 
 
@@ -88,6 +123,18 @@ class FunctorTests: XCTestCase {
     let expected = double • triple
     XCTAssertEqual(expected(5), result(5))
     XCTAssertEqual(expected(5), 30)
+  }
+
+  func test_functions_obey_identity_functor_law() {
+    let result = identity <^> square
+    XCTAssertEqual(square(2), result(2))
+  }
+
+  func test_functions_obey_composition_functor_law() {
+    let result1 = (double • triple) <^> square
+    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(square)
+    XCTAssertEqual(150, result1(5))
+    XCTAssertEqual(result1(5), result2(5))
   }
 
 }
