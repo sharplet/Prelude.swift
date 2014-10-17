@@ -10,15 +10,11 @@
 		4A5488C319EFA429002F0BA2 /* Prelude.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A5488C219EFA429002F0BA2 /* Prelude.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A5488C919EFA429002F0BA2 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5488BD19EFA429002F0BA2 /* Prelude.framework */; };
 		4A5488DB19EFA4B2002F0BA2 /* FunctorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5488DA19EFA4B2002F0BA2 /* FunctorTests.swift */; };
-		4AB7591F19F05A97008B7A4F /* Curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7591E19F05A97008B7A4F /* Curry.swift */; };
 		4AB7592119F06152008B7A4F /* Applicative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592019F06152008B7A4F /* Applicative.swift */; };
 		4AB7592319F06167008B7A4F /* ApplicativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592219F06167008B7A4F /* ApplicativeTests.swift */; };
-		4AB7592519F06464008B7A4F /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592419F06464008B7A4F /* Identity.swift */; };
 		4AB7592719F06582008B7A4F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592619F06582008B7A4F /* Helpers.swift */; };
-		4AB7592919F079E6008B7A4F /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592819F079E6008B7A4F /* Flip.swift */; };
-		4AB7592B19F0B302008B7A4F /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592A19F0B301008B7A4F /* Apply.swift */; };
+		4AB7592D19F0B482008B7A4F /* Prelude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7592C19F0B482008B7A4F /* Prelude.swift */; };
 		4AC83FF519EFA58E0053F402 /* Functor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC83FF419EFA58E0053F402 /* Functor.swift */; };
-		4AC83FF719EFCEE50053F402 /* Compose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC83FF619EFCEE50053F402 /* Compose.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,15 +34,11 @@
 		4A5488C819EFA429002F0BA2 /* PreludeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreludeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5488CE19EFA429002F0BA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A5488DA19EFA4B2002F0BA2 /* FunctorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FunctorTests.swift; path = PreludeTests/FunctorTests.swift; sourceTree = SOURCE_ROOT; };
-		4AB7591E19F05A97008B7A4F /* Curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curry.swift; sourceTree = "<group>"; };
 		4AB7592019F06152008B7A4F /* Applicative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Applicative.swift; sourceTree = "<group>"; };
 		4AB7592219F06167008B7A4F /* ApplicativeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicativeTests.swift; sourceTree = SOURCE_ROOT; };
-		4AB7592419F06464008B7A4F /* Identity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		4AB7592619F06582008B7A4F /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = SOURCE_ROOT; };
-		4AB7592819F079E6008B7A4F /* Flip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
-		4AB7592A19F0B301008B7A4F /* Apply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
+		4AB7592C19F0B482008B7A4F /* Prelude.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prelude.swift; sourceTree = "<group>"; };
 		4AC83FF419EFA58E0053F402 /* Functor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functor.swift; sourceTree = "<group>"; };
-		4AC83FF619EFCEE50053F402 /* Compose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compose.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +85,8 @@
 			children = (
 				4A5488C219EFA429002F0BA2 /* Prelude.h */,
 				4AB7592019F06152008B7A4F /* Applicative.swift */,
-				4AB7592A19F0B301008B7A4F /* Apply.swift */,
-				4AC83FF619EFCEE50053F402 /* Compose.swift */,
-				4AB7591E19F05A97008B7A4F /* Curry.swift */,
-				4AB7592819F079E6008B7A4F /* Flip.swift */,
 				4AC83FF419EFA58E0053F402 /* Functor.swift */,
-				4AB7592419F06464008B7A4F /* Identity.swift */,
+				4AB7592C19F0B482008B7A4F /* Prelude.swift */,
 				4A5488C019EFA429002F0BA2 /* Supporting Files */,
 			);
 			path = Prelude;
@@ -246,12 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC83FF719EFCEE50053F402 /* Compose.swift in Sources */,
-				4AB7591F19F05A97008B7A4F /* Curry.swift in Sources */,
-				4AB7592B19F0B302008B7A4F /* Apply.swift in Sources */,
-				4AB7592519F06464008B7A4F /* Identity.swift in Sources */,
+				4AB7592D19F0B482008B7A4F /* Prelude.swift in Sources */,
 				4AB7592119F06152008B7A4F /* Applicative.swift in Sources */,
-				4AB7592919F079E6008B7A4F /* Flip.swift in Sources */,
 				4AC83FF519EFA58E0053F402 /* Functor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
