@@ -26,4 +26,14 @@ class ApplicativeTests: XCTestCase {
     XCTAssertEqual(result1!, result2!)
   }
 
+  func test_optional_obeys_composition_law() {
+    let u = pure(double),
+        v = pure(triple),
+        w = pure(10)
+    let result1 = u <*> (v <*> w)
+    let result2 = pure(curry(•)) <*> u <*> v <*> w
+    XCTAssertEqual(60, result1!)
+    XCTAssertEqual(result1!, result2!)
+  }
+
 }
