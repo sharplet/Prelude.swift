@@ -7,7 +7,7 @@ class ApplicativeTests: XCTestCase {
 
   func test_optional_obeys_identity_law() {
     let v: Int? = 1
-    let result = pure(identity) <*> v
+    let result = pure(id) <*> v
     XCTAssertNotNil(result)
     XCTAssertEqual(v!, result!)
   }

@@ -26,7 +26,7 @@ class FunctorTests: XCTestCase {
 
   func test_optional_obeys_the_identity_functor_law() {
     let value: Int? = 10
-    let result = identity <^> value
+    let result = id <^> value
     XCTAssertNotNil(result)
     XCTAssertEqual(10, result!)
   }
@@ -63,7 +63,7 @@ class FunctorTests: XCTestCase {
 
   func test_array_obeys_the_identity_functor_law() {
     let ints = Array(1...10)
-    let result = identity <^> ints
+    let result = id <^> ints
     let expected = Array(1...10)
     XCTAssertEqual(expected, result)
   }
@@ -94,7 +94,7 @@ class FunctorTests: XCTestCase {
   }
 
   func test_dictionary_obeys_the_identity_functor_law() {
-    let result = identity <^> singles
+    let result = id <^> singles
     XCTAssertEqual(singles, result)
   }
 
@@ -115,7 +115,7 @@ class FunctorTests: XCTestCase {
   }
 
   func test_functions_obey_identity_functor_law() {
-    let result = identity <^> square
+    let result = id <^> square
     XCTAssertEqual(square(2), result(2))
   }
 

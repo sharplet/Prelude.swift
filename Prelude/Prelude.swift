@@ -2,9 +2,9 @@
 // Identity
 //
 
-// identity :: a -> a
+// id :: a -> a
 //
-public func identity <A> (a: A) -> A {
+public func id <A> (a: A) -> A {
   return a
 }
 
