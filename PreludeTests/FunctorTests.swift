@@ -3,17 +3,6 @@ import Prelude
 
 class FunctorTests: XCTestCase {
 
-  // Helpers
-
-  func identity<A>(a: A) -> A { return a }
-
-  func double(x: Int) -> Int { return x * 2 }
-  func triple(x: Int) -> Int { return x * 3 }
-  func square(x: Int) -> Int { return x * x }
-
-  func show<T: Printable>(t: T) -> String { return t.description }
-
-
   // Optional
 
   func test_it_maps_an_optional_value() {

@@ -1,4 +1,5 @@
-/// fmap :: (a -> b) -> m a -> m b
+/// class Functor f where
+///   fmap :: (a -> b) -> f a -> f b
 
 infix operator <^> {
   associativity right
