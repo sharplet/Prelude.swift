@@ -49,4 +49,33 @@ class ApplicativeTests: XCTestCase {
     XCTAssertEqual([6,7,11,12], result)
   }
 
+  func test_array_obeys_identity_law() {
+    let result = pure(id) <*> [1]
+    XCTAssertEqual([1], result)
+  }
+
+  func test_array_obeys_homomorphism_law() {
+    let result1: [Int] = pure(double) <*> pure(10)
+    let result2: [Int] = pure(double(10))
+    XCTAssertEqual(result1, result2)
+  }
+
+  func test_array_obeys_interchange_law() {
+    let u = [double]
+    let y = 10
+    let result1 = u <*> pure(y)
+    let result2 = pure(flip(§)(y)) <*> u
+    XCTAssertEqual(result1, result2)
+  }
+
+  func test_array_obeys_composition_law() {
+    let u = [double],
+        v = [triple],
+        w = [10]
+    let result1 = u <*> (v <*> w)
+    let result2 = pure(curry(•)) <*> u <*>  v <*> w
+    XCTAssertEqual([60], result1)
+    XCTAssertEqual(result1, result2)
+  }
+
 }
