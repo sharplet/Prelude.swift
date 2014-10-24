@@ -19,7 +19,7 @@ class ApplicativeTests: XCTestCase {
   }
 
   func test_optional_obeys_interchange_law() {
-    let u = double
+    let u = Optional.Some(double)
     let y = 10
     let result1 = u <*> pure(y)
     let result2 = pure(flip(§)(y)) <*> u
