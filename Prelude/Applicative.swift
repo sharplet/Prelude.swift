@@ -7,6 +7,11 @@ infix operator <*> {
   precedence 100
 }
 
+infix operator <^> {
+  associativity right
+  precedence 110
+}
+
 
 // Optional
 
@@ -23,6 +28,10 @@ public func <*> <A, B> (f: (A -> B)?, a: A?) -> B? {
   }
 }
 
+public func <^> <A, B> (f: A -> B, a: A?) -> B? {
+  return fmap(f, a)
+}
+
 
 // Array
 
@@ -36,4 +45,22 @@ public func <*> <A, B> (fs: [(A -> B)], xs: [A]) -> [B] {
   }
 }
 
+public func <^> <A, B> (f: A -> B, a: [A]) -> [B] {
+  return fmap(f, a)
+}
+
 // TODO ziplist...
+
+
+// Dictionary
+
+public func <^> <A, B, K> (f: A -> B, source: [K: A]) -> [K: B] {
+  return fmap(f, source)
+}
+
+
+// ((->) r)
+
+public func <^> <A, B, R> (f: A -> B, g: R -> A) -> R -> B {
+  return fmap(f, g)
+}
