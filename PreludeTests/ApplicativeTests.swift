@@ -40,12 +40,12 @@ class ApplicativeTests: XCTestCase {
   // Array
 
   func test_it_applies_a_list_of_functions_to_a_single_value() {
-    let result = curry(+) <^> [2,3,4] <*> pure(4)
+    let result = curry(+) <§> [2,3,4] <*> pure(4)
     XCTAssertEqual([6,7,8], result)
   }
 
   func test_it_collects_results_from_functions_applied_to_multiple_values() {
-    let result = curry(+) <^> [5,10] <*> [1,2]
+    let result = curry(+) <§> [5,10] <*> [1,2]
     XCTAssertEqual([6,7,11,12], result)
   }
 

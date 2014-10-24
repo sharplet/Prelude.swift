@@ -7,7 +7,7 @@ infix operator <*> {
   precedence 100
 }
 
-infix operator <^> {
+infix operator <§> {
   associativity right
   precedence 110
 }
@@ -28,7 +28,7 @@ public func <*> <A, B> (f: (A -> B)?, a: A?) -> B? {
   }
 }
 
-public func <^> <A, B> (f: A -> B, a: A?) -> B? {
+public func <§> <A, B> (f: A -> B, a: A?) -> B? {
   return fmap(f, a)
 }
 
@@ -41,11 +41,11 @@ public func pure <A> (a: A) -> [A] {
 
 public func <*> <A, B> (fs: [(A -> B)], xs: [A]) -> [B] {
   return reduce(fs, []) { res, f in
-    res + (f <^> xs)
+    res + (f <§> xs)
   }
 }
 
-public func <^> <A, B> (f: A -> B, a: [A]) -> [B] {
+public func <§> <A, B> (f: A -> B, a: [A]) -> [B] {
   return fmap(f, a)
 }
 
@@ -54,13 +54,13 @@ public func <^> <A, B> (f: A -> B, a: [A]) -> [B] {
 
 // Dictionary
 
-public func <^> <A, B, K> (f: A -> B, source: [K: A]) -> [K: B] {
+public func <§> <A, B, K> (f: A -> B, source: [K: A]) -> [K: B] {
   return fmap(f, source)
 }
 
 
 // ((->) r)
 
-public func <^> <A, B, R> (f: A -> B, g: R -> A) -> R -> B {
+public func <§> <A, B, R> (f: A -> B, g: R -> A) -> R -> B {
   return fmap(f, g)
 }
