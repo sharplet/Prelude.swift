@@ -4,6 +4,7 @@
 
 infix operator <*> {
   associativity left
+  precedence 100
 }
 
 
@@ -21,3 +22,18 @@ public func <*> <A, B> (f: (A -> B)?, a: A?) -> B? {
     return nil
   }
 }
+
+
+// Array
+
+public func pure <A> (a: A) -> [A] {
+  return [a]
+}
+
+public func <*> <A, B> (fs: [(A -> B)], xs: [A]) -> [B] {
+  return reduce(fs, []) { res, f in
+    res + (f <^> xs)
+  }
+}
+
+// TODO ziplist...

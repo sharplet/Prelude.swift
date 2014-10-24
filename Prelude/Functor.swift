@@ -3,6 +3,7 @@
 
 infix operator <^> {
   associativity right
+  precedence 110
 }
 
 
