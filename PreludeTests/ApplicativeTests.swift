@@ -22,7 +22,7 @@ class ApplicativeTests: XCTestCase {
     let u = double
     let y = 10
     let result1 = u <*> pure(y)
-    let result2 = pure(applicationTo(y)) <*> u
+    let result2 = pure(flip(§)(y)) <*> u
     XCTAssertEqual(result1!, result2!)
   }
 

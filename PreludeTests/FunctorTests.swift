@@ -34,7 +34,7 @@ class FunctorTests: XCTestCase {
   func test_optional_obeys_the_composition_functor_law() {
     let value: Int? = 10
     let result1 = fmap(double • triple, value)
-    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(value)
+    let result2 = curry(fmap)(double) • curry(fmap)(triple) § value
     XCTAssertEqual(result1!, result2!)
   }
 
@@ -71,7 +71,7 @@ class FunctorTests: XCTestCase {
   func test_array_obeys_the_composition_functor_law() {
     let ints = Array(1...10)
     let result1 = fmap(double • triple, ints)
-    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(ints)
+    let result2 = curry(fmap)(double) • curry(fmap)(triple) § ints
     XCTAssertEqual(result1, result2)
   }
 
@@ -100,7 +100,7 @@ class FunctorTests: XCTestCase {
 
   func test_dictionary_obeys_the_composition_functor_law() {
     let result1 = fmap(double • triple, singles)
-    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(singles)
+    let result2 = curry(fmap)(double) • curry(fmap)(triple) § singles
     XCTAssertEqual(result1, result2)
   }
 
@@ -121,7 +121,7 @@ class FunctorTests: XCTestCase {
 
   func test_functions_obey_composition_functor_law() {
     let result1 = fmap(double • triple, square)
-    let result2 = (curry(fmap)(double) • curry(fmap)(triple))(square)
+    let result2 = curry(fmap)(double) • curry(fmap)(triple) § square
     XCTAssertEqual(150, result1(5))
     XCTAssertEqual(result1(5), result2(5))
   }

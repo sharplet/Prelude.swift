@@ -28,15 +28,13 @@ public func • <A, B, C> (f: B -> C, g: A -> B) -> A -> C {
 
 // ($) :: (a -> b) -> a -> b
 //
-public func applyTo <A, B> (f: A -> B, a: A) -> B {
-  return f(a)
+infix operator § {
+  associativity left
+  precedence 10
 }
 
-// applicationTo :: a -> (a -> B) -> b
-// applicationTo y = ($ y)
-//
-public func applicationTo <A, B> (a: A) -> (A -> B) -> B {
-  return flip(applyTo)(a)
+public func § <A, B> (f: A -> B, a: A) -> B {
+  return f(a)
 }
 
 
